@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles.css">
+    <script src="https://kit.fontawesome.com/b01f475331.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>What Weather? ☀️</title>
+</head>
+
+<body>
+    <div class="container">
+        <img src="images/undraw_Weather_re_qsmd.svg" alt="Weather app pic">
+        <form id="search-submit">
+            </br>
+            <div class="row">
+                <div class="col-9">
+                    <input type="text" class="form-control" placeholder="Enter city name" id="submit-form" />
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-outline-dark">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="degrees">
+            <button type="button" class="btn btn-outline-warning" id="celsius-button">°C</button>
+            <button type="button" class="btn btn-outline-success" id="current-position-button">Current position</button>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2 id="city">
+                        </h2>
+                        <h4 id="rightNowDay">
+                            Sunday
+                        </h4>
+                        <h4 id="rightNowDate">
+                            03/01/2021
+                        </h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h1>
+                            <i class="fas fa-sun"></i>
+                        </h1>
+                        <h4 id="weather-status-today"> Partly cloudy</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4 id="today-degree">
+                            Temperature: 17°C
+                        </h4>
+                        <h4 id="humidity-today">
+                            Humidity: 60%
+                        </h4>
+                        <h4 id="wind-today">
+                            Wind: 5 km/h
+                        </h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </br>
+        <div class="row">
+
+            <div class="col-12 col-md">
+                <div class="card h-100">
+                    <div class="card-body" id="tomorrow">
+                        <h5>
+                            Monday
+                        </h5>
+                        <h5>
+                            04/01/2021
+                        </h5>
+                        <div class="today-
+                    icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <h3>
+                            20°C
+                        </h3>
+                        <h5>
+                            Partly cloudy
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5>
+                            Tuesday
+                        </h5>
+                        <h5>
+                            05/01/2021
+                        </h5>
+                        <i class="fas fa-cloud"></i>
+                        <h3>
+                            18°C
+                        </h3>
+                        <h5>
+                            Cloudy
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5>
+                            Wednesday
+                        </h5>
+                        <h5>
+                            06/01/2021
+                        </h5>
+                        <i class="fas fa-cloud-rain"></i>
+                        <h3>
+                            10°C
+                        </h3>
+                        <h5>
+                            Rain showers
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5>
+                            Thursday
+                        </h5>
+                        <h5>
+                            07/01/2021
+                        </h5>
+                        <i class="fas fa-cloud"></i>
+                        <h3>
+                            8°C
+                        </h3>
+                        <h5>
+                            Cloudy
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5>
+                            Friday
+                        </h5>
+                        <h5>
+                            08/01/2021
+                        </h5>
+                        <i class="far fa-snowflake"></i>
+                        <h3>
+                            2°C
+                        </h3>
+                        <h5>
+                            Snow showers
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
