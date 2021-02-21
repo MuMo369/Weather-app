@@ -30,17 +30,20 @@ let year = currentDate.getFullYear();
 rightNowDay.innerHTML = `${day}`;
 rightNowDate.innerHTML = `${date}/${month}/${year}`;
 
-function updateCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#submit-form");
-  let city = document.querySelector("#city");
-  city.innerHTML = cityInput.value;
+function updateCity(cityInput) {
   let apiKey = "53aff9595b18349d32179fdacc6d01bf";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=metric&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(showWeather);
 }
+
+function handleSubmit() {
+  event.preventDefault();
+  let cityInput = document.querySelector("#submit-form").value;
+  updateCity(cityInput);
+}
+
 let citySearch = document.querySelector("#search-submit");
-citySearch.addEventListener("submit", updateCity);
+citySearch.addEventListener("submit", handleSubmit);
 
 function showCity(city) {
   let currentCity = document.querySelector("#city");
@@ -54,9 +57,6 @@ function showPosition(position) {
   let apiKey = "53aff9595b18349d32179fdacc6d01bf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(showWeather);
-  let apiKeyGeo = "pk.3db84b66e35faeecbb4d0981e3e7138c";
-  let apiUrlMaps = `https://us1.locationiq.com/v1/reverse.php?key=${apiKeyGeo}&format=json&lat=${lat}&lon=${lon}`;
-  axios.get(`${apiUrlMaps}`).then(showCity);
 }
 
 function runNavigator() {
@@ -68,6 +68,8 @@ currentButton.addEventListener("click", runNavigator);
 
 function showWeather(response) {
   console.log(response);
+  let cityName = document.querySelector("#city");
+  cityName.innerHTML = response.data.name;
   let tempRound = Math.round(response.data.main.temp);
   let temperatureToday = document.querySelector("#today-degree");
   temperatureToday.innerHTML = `Temperature: ${tempRound}°C`;
@@ -78,3 +80,5 @@ function showWeather(response) {
   let windToday = document.querySelector("#wind-today");
   windToday.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
 }
+
+updateCity("London");
